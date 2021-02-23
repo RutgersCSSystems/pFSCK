@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+
+<!--
+This test tests the optimizations of pass 1 by running it against a full
+file system with the maximum amount of files at different thread levels
+-->
+
+<data>
+  <name>Pass-AllTest-Files</name>
+  <folder>Pass_All_Test_Files</folder>
+
+  <run>
+    <name>Original</name>
+    <key>1-no opt</key>
+    <image>fillfile_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+  <run>
+    <name>1_thread</name>
+    <key>1-opt</key>
+    <image>fillfile_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx -g 12345 -q 1</flags>
+    <buildflags> USER_CFLAGS='-D_SPIN_XCHG -D_REDUCE_OP_STRINGS -D_INTEL_CRC32C -D_PIPELINE_PARALLELISM -D_READ_DIR_BLOCKS=4 -D_FIX_CACHE -D_DBLIST_THRESHOLD=5000 -D_SCHEDULER -D_MIN_READ'</buildflags>
+  </run>
+
+  <run>
+    <name>[${THREAD_RANGE}*1/8]_threads</name>
+    <key>[${THREAD_RANGE}*1/8]</key>
+    <image>fillfile_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx -g 12345 -q [${THREAD_RANGE}*1/8]</flags>
+    <buildflags> USER_CFLAGS='-D_SPIN_XCHG -D_REDUCE_OP_STRINGS -D_INTEL_CRC32C -D_PIPELINE_PARALLELISM -D_READ_DIR_BLOCKS=4 -D_FIX_CACHE -D_DBLIST_THRESHOLD=5000 -D_SCHEDULER -D_MIN_READ'</buildflags>
+  </run>
+
+  <run>
+    <name>[${THREAD_RANGE}*1/4]_threads</name>
+    <key>[${THREAD_RANGE}*1/4] </key>
+    <image>fillfile_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx -g 12345 -q [${THREAD_RANGE}*1/4]</flags>
+    <buildflags> USER_CFLAGS='-D_SPIN_XCHG -D_REDUCE_OP_STRINGS -D_INTEL_CRC32C -D_PIPELINE_PARALLELISM -D_READ_DIR_BLOCKS=4 -D_FIX_CACHE -D_DBLIST_THRESHOLD=5000 -D_SCHEDULER -D_MIN_READ'</buildflags>
+  </run>
+
+  <run>
+    <name>[${THREAD_RANGE}*1/2]_threads</name>
+    <key>[${THREAD_RANGE}*1/2]</key>
+    <image>fillfile_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx -g 12345 -q [${THREAD_RANGE}*1/2]</flags>
+    <buildflags> USER_CFLAGS='-D_SPIN_XCHG -D_REDUCE_OP_STRINGS -D_INTEL_CRC32C -D_PIPELINE_PARALLELISM -D_READ_DIR_BLOCKS=4 -D_FIX_CACHE -D_DBLIST_THRESHOLD=5000 -D_SCHEDULER -D_MIN_READ'</buildflags>
+  </run>
+
+  <run>
+    <name>[${THREAD_RANGE}*3/4]_threads</name>
+    <key>[${THREAD_RANGE}*3/4] </key>
+    <image>fillfile_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx -g 12345 -q [${THREAD_RANGE}*3/4] </flags>
+    <buildflags> USER_CFLAGS='-D_SPIN_XCHG -D_REDUCE_OP_STRINGS -D_INTEL_CRC32C -D_PIPELINE_PARALLELISM -D_READ_DIR_BLOCKS=4 -D_FIX_CACHE -D_DBLIST_THRESHOLD=5000 -D_SCHEDULER -D_MIN_READ'</buildflags>
+  </run>
+
+  <run>
+    <name>[${THREAD_RANGE}*1/1]_threads</name>
+    <key>[${THREAD_RANGE}*1/1] </key>
+    <image>fillfile_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx -g 12345 -q [${THREAD_RANGE}*1/1] </flags>
+    <buildflags>USER_CFLAGS='-D_SPIN_XCHG -D_INTEL_CRC32C -D_REDUCE_OP_STRINGS'</buildflags>
+  </run>
+
+  <graph>
+    <title>e-threads-vs-e2fsck-runtime-image-fillfile_size-${IMAGESIZE}gb.img</title>
+    <fields>
+      <field>Pass 1</field>
+      <field>Pass 2</field>
+      <field>Pass 3</field>
+      <field>Pass 4</field>
+      <field>Pass 5</field>
+    </fields>
+    <xlabel>Threads</xlabel>
+    <ylabel>Time (Seconds)</ylabel>
+  </graph>
+
+</data>

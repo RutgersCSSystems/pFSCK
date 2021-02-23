@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+
+
+<!-- Test
+
+Takes total number of inodes, and rounds down to the highest decimal place.
+Then splits it 8
+
+
+Math stuff:
+total inodes = ${IMAGESIZE}*65525
+decimals = log(total_inodes)/log(10)
+largest div = 10**int(decimals)
+number = int(total inodes / largest div)
+total = number * largest div
+
+
+
+total = int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))
+
+total dir = total/2
+
+total * frac
+
+
+-->
+
+<data>
+  <name>Scheduler Budget Files Test</name>
+  <folder>Scheduler_Budget_Files_Test</folder>
+
+  <run>
+    <name>2</name>
+    <key>2</key>
+    <image>fillfile_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx -g 12 -q 8 -w 8 -Z 2</flags>
+    <buildflags> USER_CFLAGS='-D_SPIN_XCHG -D_REDUCE_OP_STRINGS -D_INTEL_CRC32C -D_PIPELINE_PARALLELISM -D_READ_DIR_BLOCKS=4 -D_FIX_CACHE -D_DBLIST_THRESHOLD=5000 -D_SCHEDULER -D_MIN_READ'</buildflags>
+  </run>
+
+  <run>
+    <name>4</name>
+    <key>4</key>
+    <image>fillfile_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx -g 12 -q 8 -w 8 -Z 4</flags>
+    <buildflags> USER_CFLAGS='-D_SPIN_XCHG -D_REDUCE_OP_STRINGS -D_INTEL_CRC32C -D_PIPELINE_PARALLELISM -D_READ_DIR_BLOCKS=4 -D_FIX_CACHE -D_DBLIST_THRESHOLD=5000 -D_SCHEDULER -D_MIN_READ'</buildflags>
+  </run>
+
+  <run>
+    <name>8</name>
+    <key>8</key>
+    <image>fillfile_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx -g 12 -q 8 -w 8 -Z 8</flags>
+    <buildflags> USER_CFLAGS='-D_SPIN_XCHG -D_REDUCE_OP_STRINGS -D_INTEL_CRC32C -D_PIPELINE_PARALLELISM -D_READ_DIR_BLOCKS=4 -D_FIX_CACHE -D_DBLIST_THRESHOLD=5000 -D_SCHEDULER -D_MIN_READ'</buildflags>
+  </run>
+
+  <run>
+    <name>16</name>
+    <key>16</key>
+    <image>fillfile_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx -g 12 -q 8 -w 8 -Z 16</flags>
+    <buildflags> USER_CFLAGS='-D_SPIN_XCHG -D_REDUCE_OP_STRINGS -D_INTEL_CRC32C -D_PIPELINE_PARALLELISM -D_READ_DIR_BLOCKS=4 -D_FIX_CACHE -D_DBLIST_THRESHOLD=5000 -D_SCHEDULER -D_MIN_READ'</buildflags>
+  </run>
+
+
+  <graph>
+    <title>Thread Configurations vs Scheduler</title>
+    <fields>
+      <field>Pass 1</field>
+      <field>Pass 2</field>
+      <field>Pass 3</field>
+      <field>Pass 4</field>
+      <field>Pass 5</field>
+    </fields>
+    <xlabel>Thread Configuration "data threads"/"pipeline threads"</xlabel>
+    <ylabel>Time (Seconds)</ylabel>
+  </graph>
+
+</data>

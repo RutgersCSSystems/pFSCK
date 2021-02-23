@@ -1,0 +1,42 @@
+The following are tests and their descriptions:
+
+
+################################
+# Basic File System Sensitivity #
+################################
+
+1. File-System-Size-Test.xml
+   - This test runs fsck for different file system sizes
+
+2. Fs-Size-Test.xml
+    - This filesystem
+
+3. dir-count-Test.xml
+    - This file system
+
+
+##############
+
+
+RUN
+
+image name:
+  "size-xgb" for max size.
+
+thread:
+   "x" for max threads
+   "inc" to increment from 0
+   "even" to evenly split max threads /runs
+
+dynamickey:
+
+
+
+test:
+  name
+  folder
+  run..
+  graph..
+    title
+    xlabel
+    ylabel

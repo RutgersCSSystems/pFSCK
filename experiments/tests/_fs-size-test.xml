@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+
+<data>
+  <name>Filesystem Size</name>
+  <folder>Filesystem-Size</folder>
+
+  <run>
+    <name>[${IMAGESIZE}*1/8]_gb</name>
+    <key>[${IMAGESIZE}*1/8]</key>
+    <image>fillfile_size-[${IMAGESIZE}*1/8]gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+  <run>
+    <name>[${IMAGESIZE}*2/8]_gb</name>
+    <key>[${IMAGESIZE}*2/8]</key>
+    <image>fillfile_size-[${IMAGESIZE}*2/8]gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+  <run>
+    <name>[${IMAGESIZE}*3/8]_gb</name>
+    <key>[${IMAGESIZE}*3/8]</key>
+    <image>fillfile_size-[${IMAGESIZE}*3/8]gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+  <run>
+    <name>[${IMAGESIZE}*4/8]_gb</name>
+    <key>[${IMAGESIZE}*4/8]</key>
+    <image>fillfile_size-[${IMAGESIZE}*4/8]gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+  <run>
+    <name>[${IMAGESIZE}*5/8]_gb</name>
+    <key>[${IMAGESIZE}*5/8]</key>
+    <image>fillfile_size-[${IMAGESIZE}*5/8]gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+  <run>
+    <name>[${IMAGESIZE}*6/8]_gb</name>
+    <key>[${IMAGESIZE}*6/8]</key>
+    <image>fillfile_size-[${IMAGESIZE}*6/8]gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+  <run>
+    <name>[${IMAGESIZE}*7/8]_gb</name>
+    <key>[${IMAGESIZE}*7/8]</key>
+    <image>fillfile_size-[${IMAGESIZE}*7/8]gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+  <run>
+    <name>[${IMAGESIZE}*8/8]_gb</name>
+    <key>[${IMAGESIZE}*8/8]</key>
+    <image>fillfile_size-[${IMAGESIZE}*8/8]gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+
+  <graph>
+    <title>Filesystem Size vs E2fsck Time</title>
+    <fields>
+      <field>Pass 1</field>
+      <field>Pass 2</field>
+      <field>Pass 3</field>
+      <field>Pass 4</field>
+      <field>Pass 5</field>
+    </fields>
+    <xlabel>Filesystem Size (GB)</xlabel>
+    <ylabel>Time (Seconds)</ylabel>
+  </graph>
+
+</data>

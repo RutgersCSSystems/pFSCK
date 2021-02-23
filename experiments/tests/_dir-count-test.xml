@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+
+
+<!-- Test
+
+Takes total number of inodes, and rounds down to the highest decimal place.
+Then splits it 8
+
+
+Math stuff:
+total inodes = ${IMAGESIZE}*65525
+decimals = log(total_inodes)/log(10)
+largest div = 10**int(decimals)
+number = int(total inodes / largest div)
+total = number * largest div
+
+
+
+total = int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))
+
+total dir = total/2
+
+total * frac
+
+
+-->
+
+<data>
+  <name>Directory Count Test</name>
+  <folder>Directory_Count_Test</folder>
+
+  <run>
+    <name>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*1/8]_directories</name>
+    <key>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*1/8]</key>
+    <image>dirs-[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*1/8]_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+
+  <run>
+    <name>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*2/8]_directories</name>
+    <key>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*2/8]</key>
+    <image>dirs-[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*2/8]_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+
+
+  <run>
+    <name>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*3/8]_directories</name>
+    <key>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*3/8]</key>
+    <image>dirs-[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*3/8]_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+  <run>
+    <name>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*4/8]_directories</name>
+    <key>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*4/8]</key>
+    <image>dirs-[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*4/8]_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+  <run>
+    <name>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*5/8]_directories</name>
+    <key>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*5/8]</key>
+    <image>dirs-[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*5/8]_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+  <run>
+    <name>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*6/8]_directories</name>
+    <key>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*6/8]</key>
+    <image>dirs-[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*6/8]_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+  <run>
+    <name>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*7/8]_directories</name>
+    <key>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*7/8]</key>
+    <image>dirs-[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2*7/8]_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+
+  <run>
+    <name>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2]_directories</name>
+    <key>[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2]</key>
+    <image>dirs-[int(${IMAGESIZE}*65525/10**int(log(${IMAGESIZE}*65525)/log(10)))*10**int( log(${IMAGESIZE}*65525)/log(10))/2]_size-${IMAGESIZE}gb.img</image>
+    <flags>-fFnttvx</flags>
+    <buildflags></buildflags>
+  </run>
+
+
+
+  <graph>
+    <title>Directory Count vs E2fsck Time</title>
+    <fields>
+      <field>Pass 1</field>
+      <field>Pass 2</field>
+      <field>Pass 3</field>
+      <field>Pass 4</field>
+      <field>Pass 5</field>
+    </fields>
+    <xlabel>Directory Count</xlabel>
+    <ylabel>Time (Seconds)</ylabel>
+  </graph>
+
+</data>
