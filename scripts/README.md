@@ -46,7 +46,7 @@ export RAMDISKSIZE=51200m && ./scripts/setup-tempfs.sh
 ##  Initial Compiling and Setup
 In order to run everything from the get go run the set_env.sh script to run the initial setup. 
 ```
-sudo ./setup-env.sh
+sudo scripts/setup-env.sh
 ```
 This script does the following:
 1. Creates inital pFSCK build folder, set it up, and does initiall compile
